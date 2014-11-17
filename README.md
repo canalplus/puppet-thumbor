@@ -3,14 +3,13 @@ puppet-thumbor
 
 Puppet module to deploy Thumbor http://github.com/globocom/thumbor
 
-this module depends on https://forge.puppetlabs.com/puppetlabs/apt to configue PPA repo https://launchpad.net/~thumbor/+archive/ppa
+This is a fork of https://github.com/viadeo/puppet-thumbor but allowing installation through pip instead of apt.
 
 To test it with vagrant http://www.vagrantup.com/
 
 ```
 mkdir modules
-puppet module install -i ./modules puppetlabs/apt
-git clone git://github.com/dhardy92/puppet-thumbor.git modules/thumbor
+git clone git://github.com/Bladrak/puppet-thumbor.git modules/thumbor
 cd modules/thumbor/tests
 vagrant up
 ```

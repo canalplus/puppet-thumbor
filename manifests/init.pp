@@ -20,14 +20,12 @@ class thumbor (
 ) {
 
     ## Modules
-    include thumbor::repo
     include thumbor::install
     include thumbor::config
     include thumbor::service
 
     ## Ordering
-    Class['thumbor::repo']
-    -> Class['thumbor::install']
+    Class['thumbor::install']
     -> Class['thumbor::config']
     -> Class['thumbor::service']
 }

@@ -28,9 +28,16 @@ class thumbor::config {
   }
   file {'/etc/thumbor.key':
     ensure => present,
-    owner  => 'thumbor',
-    group  => 'thumbor',
+    owner  => root,
+    group  => root,
     mode   => 0600,
     content=> $thumbor::security_key,
+  }
+  file {'/etc/init.d/thumbor':
+    ensure  => present,
+    owner   => root,
+    group   => root,
+    mode    => 0744,
+    content => template('thumbor/init.erb')
   }
 }

@@ -13,6 +13,8 @@
 # [Remember: No empty lines between comments and class definition]
 class thumbor::install {
   package{ ['thumbor']:
-    ensure => present
+    ensure   => present,
+    provider => pip,
+    require  => [Package['python-pip'], Package['libcurl4-openssl-dev'], Package['python-dev']],
   }
 }
