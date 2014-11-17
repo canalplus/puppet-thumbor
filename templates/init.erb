@@ -11,7 +11,7 @@
 ### END INIT INFO
 
 
-PATH=/sbin:/usr/sbin:/bin:/usr/bin
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 NAME=thumbor
 
 conffile=/etc/thumbor.conf
@@ -19,10 +19,10 @@ keyfile=/etc/thumbor.key
 ip=<%=scope.lookupvar('thumbor::ip')%>
 port=<%=scope.lookupvar('thumbor::port')%>
 
-DAEMON=/usr/bin/$NAME
+DAEMON=/usr/local/bin/$NAME
 DAEMON_ARGS="-c ${conffile} -i ${ip} -k ${keyfile}"
 PIDDIR=/var/run/$NAME
-USER=thumbor
+USER=root
 
 . /lib/lsb/init-functions
 
@@ -34,7 +34,7 @@ USER=thumbor
 
 #Service must not be disabled
 if ! [ "$enabled" != "0" ] || [ "$force_start" = "1" ]; then 
-  echo "Thumbor service is desabled by /etc/default/$NAME"
+  echo "Thumbor service is disabled by /etc/default/$NAME"
   exit 0
 fi
 
