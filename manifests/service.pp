@@ -1,23 +1,14 @@
 # = Class: thumbor::service
 #
-# This module manages thumbor
+# This class declares the service to handle thumbor
 #
-# == Parameters:
-#
-# == Actions:
-#
-# == Requires:
-#
-# == Sample Usage:
-#
-# [Remember: No empty lines between comments and class definition]
 class thumbor::service {
-  service {"thumbor":
-    require => File['/etc/thumbor.conf',
+  service { thumbor:
+    require   => File['/etc/thumbor.conf',
                     '/etc/thumbor.key',
                     '/etc/default/thumbor',
                     '/etc/init.d/thumbor'],
-    ensure  => running,
+    ensure    => running,
     subscribe => File['/etc/thumbor.conf',
                     '/etc/thumbor.key',
                     '/etc/default/thumbor',

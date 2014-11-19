@@ -23,15 +23,22 @@ Default configuration of your instance of Thumbor:
 ```
 include thumbor
 ```
+
+or
+
+```
+class { thumbor: }
+```
+
 is equivalent to
 
 ```
 class { 'thumbor':
   security_key => 'MY_SECURE_KEY',
-  port => '8888',
-  ip => '0.0.0.0',
-  config => {},
-  conffile => '/dev/null'
+  port         => '8888',
+  ip           => '0.0.0.0',
+  config       => {},
+  service      => false,
 }
 ```
 
@@ -42,4 +49,4 @@ Configuration
   * `port` to set listening ports of thumbor instances (multiple ports can be precises separated by coma: 1 port = 1 thumbor instance)
   * `ip` to set the listening ip for all thumbor instances
   * `config` a hash to set config parameters ( Ex. : config => { 'MAX_WIDTH' => 800, 'MAX_HEIGHT' => 800, 'STORAGE'=> 'thumbor.storage.no_storage' } ). You can refer to Thumbor wiki for configuration options https://github.com/globocom/thumbor/wiki/Configuration 
-  * `conffile` a file used as template to prepend the default config (empty, only for documentation purpose)
+  * `service` : set to true to create a linux service
