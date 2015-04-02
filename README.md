@@ -42,6 +42,8 @@ class { 'thumbor':
 }
 ```
 
+This module install the packages `python-pip`, `libcurl4-openssl-dev` and `python-dev` if they are not installed before.
+
 Configuration
 -------------
 
