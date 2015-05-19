@@ -18,7 +18,7 @@ class thumbor::install {
   }
 
   package{ 'thumbor':
-    ensure   => present,
+    ensure   => $thumbor::version,
     provider => pip,
     require  => [Package['python-pip'], Package['libcurl4-openssl-dev'], Package['python-dev']],
   }

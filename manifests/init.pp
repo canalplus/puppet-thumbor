@@ -3,6 +3,10 @@
 # This module manages thumbor
 #
 # == Parameters:
+#   [*version*]
+#     Thumbor version to install.
+#     Default: latest
+#
 #   [*security_key*]
 #     Thumbor security_key (used for hash): you should edit this value ASAP.
 #     Default: MY_SECURE_KEY
@@ -31,6 +35,7 @@
 #
 # [Remember: No empty lines between comments and class definition]
 class thumbor (
+    $version      = 'latest',
     $security_key = 'MY_SECURE_KEY',
     $port         = '8888',
     $ip           = '0.0.0.0',

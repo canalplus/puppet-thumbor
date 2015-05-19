@@ -13,6 +13,7 @@ describe 'thumbor' do
 
   describe 'Test standard installation' do
     it { should contain_class('thumbor::install') }
+    it { should contain_package('thumbor') }
     it { should contain_class('thumbor::config') }
     it { should_not contain_class('thumbor::service') }
   end
