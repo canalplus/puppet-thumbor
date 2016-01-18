@@ -27,6 +27,10 @@
 #     Should we declare a service?
 #     Default: false
 #
+#   [*venv*]
+#     Virtualenv path to install thumbor in if set
+#     Default: undef
+#
 # == Actions:
 #
 # == Requires:
@@ -41,8 +45,11 @@ class thumbor (
     $ip           = '0.0.0.0',
     $config       = { },
     $service      = false,
+    $venv         = 'system',
 ) {
-    class { thumbor::install: }
+    class { thumbor::install:
+        venv => $venv,
+    }
     ->
     class { thumbor::config: }
 
