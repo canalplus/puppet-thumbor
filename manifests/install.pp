@@ -4,6 +4,7 @@
 #
 class thumbor::install (
     $venv = 'system',
+    $user = 'root',
 ) {
     validate_string($venv)
 
@@ -14,6 +15,7 @@ class thumbor::install (
     python::pip { 'thumbor':
         ensure     => $thumbor::version,
         virtualenv => $venv,
+        owner      => $user,
         require    => [Python::Virtualenv[$venv], Package['libcurl4-openssl-dev']],
     }
 }

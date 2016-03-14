@@ -46,9 +46,11 @@ class thumbor (
     $config       = { },
     $service      = false,
     $venv         = 'system',
+    $user         = 'root',
 ) {
     class { thumbor::install:
         venv => $venv,
+        user => $user,
     }
     ->
     class { thumbor::config: }
