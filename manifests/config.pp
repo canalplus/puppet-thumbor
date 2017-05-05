@@ -7,28 +7,28 @@ class thumbor::config {
         ensure  => present,
         owner   => root,
         group   => root,
-        mode    => 0644,
+        mode    => '0644',
         content => template('thumbor/default.erb'),
     }
     file { '/etc/thumbor.conf':
         ensure  => present,
         owner   => root,
         group   => root,
-        mode    => 0644,
-        content => template('thumbor/thumbor.conf.erb')
+        mode    => '0644',
+        content => template('thumbor/thumbor.conf.erb'),
     }
     file { '/etc/thumbor.key':
         ensure  => present,
         owner   => root,
         group   => root,
-        mode    => 0600,
+        mode    => '0600',
         content => $thumbor::security_key,
     }
     file { '/etc/init.d/thumbor':
         ensure  => present,
         owner   => root,
         group   => root,
-        mode    => 0744,
-        content => template('thumbor/init.erb')
+        mode    => '0744',
+        content => template('thumbor/init.erb'),
     }
 }

@@ -48,16 +48,15 @@ class thumbor (
     $venv         = 'system',
     $user         = 'root',
 ) {
-    class { thumbor::install:
+    class { '::thumbor::install':
         venv => $venv,
         user => $user,
     }
-    ->
-    class { thumbor::config: }
+    -> class { '::thumbor::config': }
 
     if $service {
-        class { thumbor::service:
-            require => Class['thumbor::config']
+        class { '::thumbor::service':
+            require => Class['thumbor::config'],
         }
     }
 }
